@@ -1,4 +1,4 @@
-module paste.myst.rs/autodetect
+module github.com/codemyst/pastemyst-autodetect
 
 go 1.14
 
