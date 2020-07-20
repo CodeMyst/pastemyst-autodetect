@@ -15,9 +15,13 @@ func main() {
         panic(err)
     }
 
-    langs := [45]string{"C", "Java", "Python", "C++", "C#", "Visual Basic", "JavaScript", "R", "PHP", "Swift", "SQL", "Go", "Assembly", "Perl", "MATLAB", "Ruby", "Scratch", "Rust", "Objective-C", "Groovy", "Dart", "D", "Kotlin", "COBOL", "ABAP", "Delphi", "Logo", "Powershell", "Lisp", "Julia", "Lua", "Scala", "VBScript", "Haskell", "Scheme", "TypeScript", "Ada", "Prolog", "PostScript", "Erlang", "RPG", "Apex", "C shell", "Fortran"}
+    langs := [34]string{"C", "Java", "Python", "C++", "C#", "Visual Basic", "JavaScript", "R", "PHP", "Swift", "SQL", "Go", "Perl", "MATLAB", "Ruby", "Rust", "Objective-C", "Dart", "D", "Kotlin", "COBOL", "Lisp", "Julia", "Lua", "Scala", "VBScript", "Haskell", "Scheme", "TypeScript", "Ada", "Prolog", "PostScript", "Erlang", "Fortran"}
 
-    lang, safe := enry.GetLanguageByClassifier(dat, langs[:])
+    lang, _ := enry.GetLanguageByClassifier(dat, langs[:])
 
-    fmt.Println(lang, safe)
+    if lang == "" {
+        fmt.Println("unknown");
+    } else {
+        fmt.Println(lang);
+    }
 }
