@@ -15,7 +15,7 @@ func main() {
         panic(err)
     }
 
-    langs := [34]string{"C", "Java", "Python", "C++", "C#", "Visual Basic", "JavaScript", "R", "PHP", "Swift", "SQL", "Go", "Perl", "MATLAB", "Ruby", "Rust", "Objective-C", "Dart", "D", "Kotlin", "COBOL", "Lisp", "Julia", "Lua", "Scala", "VBScript", "Haskell", "Scheme", "TypeScript", "Ada", "Prolog", "PostScript", "Erlang", "Fortran"}
+    langs := [29]string{"C", "Java", "Python", "C++", "C#", "JavaScript", "R", "PHP", "Swift", "SQL", "Go", "Perl", "Ruby", "Rust", "Objective-C", "Dart", "D", "Kotlin", "COBOL", "Lisp", "Julia", "Lua", "Scala", "VBScript", "Haskell", "Scheme", "TypeScript", "Erlang", "Fortran"}
 
     lang, _ := enry.GetLanguageByClassifier(dat, langs[:])
 
