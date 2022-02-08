@@ -1,27 +1,34 @@
 package main
 
-import "fmt"
-import "github.com/go-enry/go-enry/v2"
-import "io/ioutil"
-import "os"
+import (
+	"fmt"
+	"io/ioutil"
+	"os"
+
+	"github.com/go-enry/go-enry/v2"
+	"github.com/go-enry/go-enry/v2/data"
+)
 
 func main() {
-    if len(os.Args) != 2 {
-        panic("missing file path argument")
-    }
+	if len(os.Args) != 2 {
+		panic("missing file path argument")
+	}
 
-    dat, err := ioutil.ReadFile(os.Args[1])
-    if err != nil {
-        panic(err)
-    }
+	dat, err := ioutil.ReadFile(os.Args[1])
+	if err != nil {
+		panic(err)
+	}
 
-    langs := [29]string{"C", "Java", "Python", "C++", "C#", "JavaScript", "R", "PHP", "Swift", "SQL", "Go", "Perl", "Ruby", "Rust", "Objective-C", "Dart", "D", "Kotlin", "COBOL", "Lisp", "Julia", "Lua", "Scala", "VBScript", "Haskell", "Scheme", "TypeScript", "Erlang", "Fortran"}
+	langs := make([]string, 0, len(data.LanguagesLogProbabilities))
+	for k := range data.LanguagesLogProbabilities {
+		langs = append(langs, k)
+	}
 
-    lang, _ := enry.GetLanguageByClassifier(dat, langs[:])
+	lang, _ := enry.GetLanguageByClassifier(dat, langs[:])
 
-    if lang == "" {
-        fmt.Println("unknown");
-    } else {
-        fmt.Println(lang);
-    }
+	if lang == "" {
+		fmt.Println("unknown")
+	} else {
+		fmt.Println(lang)
+	}
 }
